@@ -13,6 +13,13 @@ function createPokemonCard(pokemon) {
 
     let liCards = document.createElement('li')
     liCards.className = 'card'
+    liCards.addEventListener('click', function () {
+        if (pokemonImg.src === pokemon.sprites.front_default) {
+            pokemonImg.src = pokemon.sprites.back_default
+        } else {
+            pokemonImg.src = pokemon.sprites.front_default
+        }
+    })
 
     let h2Title = document.createElement('h2')
     h2Title.className = 'card--title'
