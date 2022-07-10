@@ -7,6 +7,10 @@ body {
   margin: 0;
 }
 
+ul {
+  list-style: none;
+}
+
 body {
   display: grid;
   grid-template-columns: minmax(300px, 1200px);

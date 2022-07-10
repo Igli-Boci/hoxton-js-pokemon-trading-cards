@@ -7,4 +7,38 @@
 
 // - Render all the cards on the page that represents all the pokemons, recreating the same layout, using JS
 
-console.log(data);
+
+function createPokemonCard(pokemon) {
+
+
+    let liCards = document.createElement('li')
+    liCards.className = 'card'
+
+    let h2Title = document.createElement('h2')
+    h2Title.className = 'card--title'
+    h2Title.textContent = pokemon.name.toUpperCase()
+
+    let pokemonImg = document.createElement('img')
+    pokemonImg.width = 256
+    pokemonImg.className = 'card--img'
+    pokemonImg.src = pokemon.sprites.back_default
+
+    let ulStats = document.createElement('ul')
+    ulStats.className = 'card--text'
+
+    for (let statInfo of pokemon.stats) {
+        let statLi = document.createElement('li')
+        statLi.textContent = `${statInfo.stat.name.toUpperCase()}: ${statInfo.base_stat
+            }`
+        ulStats.appendChild(statLi)
+    }
+
+    liCards.append(h2Title, pokemonImg, ulStats)
+
+    let cardsUl = document.querySelector('.cards')
+    cardsUl.append(liCards)
+}
+
+for (let pokemon of data) {
+    createPokemonCard(pokemon)
+}
